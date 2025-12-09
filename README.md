@@ -1,59 +1,220 @@
 ## Introdução 🚀
 
-**Nome do projeto:** Classification-of-Heart-Disease-Risk-using-Machine-Learning
+**Nome do projeto:** **Classification-of-Heart-Disease-Risk-using-Machine-Learning**
 
-**Equipe / Alunos envolvidos:** Clebson Alexandre, Nicolas Klayvert, Diego Luiz, Sérgio Roberto, Leonardo abtobio, josé Miguel
+**Equipe / Alunos envolvidos:**
+Clebson Alexandre, Nicolas Klayvert, Diego Luiz, Sérgio Roberto, Leonardo Antônio, José Miguel.
 
-**Contexto da atividade:** Projeto acadêmico da disciplina — usando o conjunto de dados sorteado, foi solicitado que cada equipe construísse uma aplicação completa (Front-End, Back-End e modelo de IA) para resolver um problema de classificação.
+**Contexto da atividade:**
+Projeto acadêmico da disciplina — usando o conjunto de dados sorteado, a equipe construiu uma aplicação completa (Front-End, Back-End e modelo de IA) para resolver um problema de **classificação supervisionada**.
 
-**Objetivo principal / desafio:** Prever o risco de doença cardíaca a partir dos dados de pacientes — integrando todo o pipeline: dados, modelo de ML, backend e frontend. ❤️‍🩹
+**Objetivo principal / desafio:**
+Prever o **risco de doença cardíaca** a partir dos dados de pacientes — integrando todo o pipeline: dados, modelo de ML, backend e frontend. ❤️‍🩹
 
-**Motivação:** Aprender na prática como aplicar Machine Learning + engenharia de software, entregando uma aplicação funcional ao invés de apenas um script ou análise.
+**Motivação:**
+Aprender na prática como aplicar Machine Learning + engenharia de software, entregando uma aplicação funcional ao invés de apenas um script ou notebook.
 
 ---
 
 ## Principais Funcionalidades do Projeto
 
-* 📊 **Pré-processamento e preparação de dados** — leitura do dataset, tratamento dos dados, divisão em treino/teste.
-* 🧠 **Treinamento de modelo de classificação supervisionada** — para classificar risco de doença cardíaca com base nas variáveis fornecidas.
-* 🔗 **Backend da aplicação** — recebe dados via interface, aplica o modelo treinado e retorna a predição.
-* 🖥️ **Frontend / Interface de usuário** — formulário web onde o usuário insere os dados e obtém o resultado da classificação.
-* ✅ **Integração completa (pipeline)** — dados → ML → backend → frontend → predição, com entrega do projeto e demonstração local.
+* 📊 **Pré-processamento de dados** — limpeza, normalização e divisão em treino/teste.
+* 🧠 **Treinamento de modelo supervisionado** — classificação do risco cardíaco.
+* 🔗 **API Backend com FastAPI** — recebe dados e retorna a predição do modelo treinado.
+* 🖥️ **Frontend em Streamlit** — formulário amigável para o usuário inserir seus dados.
+* 🔁 **Pipeline completo** — dataset → ML → API → interface → resultado final.
 
 ---
 
 ## Tecnologias Utilizadas
 
-* **Python** — para pré-processamento e modelagem de ML.
-* **Bibliotecas de ciência de dados / ML** (ex: `pandas`, `scikit-learn`, `numpy`) — manipulação de dados, treinamento e avaliação do modelo.
-* **Ambiente virtual / requirements.txt** — para gerenciar dependências e garantir reprodutibilidade do ambiente.
+### 🔧 Backend / IA
+
+* **FastAPI**
+* **scikit-learn**
+* **pandas / numpy**
+* **joblib**
+* **pydantic**
+* **python-multipart**
+* **python-dotenv**
+
+### 🖥️ Frontend
+
+* **Streamlit**
+* **Requests** (consulta a API)
+
+### ⚙️ Ambiente
+
+* **uvicorn** para rodar a API
+* **requirements.txt** para instalar dependências
 
 ---
 
-## Capturas de Tela / Interface Visual (esboço)
+## 🗂️ Requirements.txt
 
-Não há capturas de tela no repositório, então não posso mostrar imagens reais.
-Mas imagino que a interface funcione assim: um formulário web para inserir dados clínicos/demográficos do paciente, botão para “prever risco” e, após submissão, exibição do resultado — por exemplo: “Risco: alto / baixo” ou “Probabilidade de doença: 85 %”.
+Aqui estão todos os pacotes necessários (como você pediu):
+
+```
+fastapi
+uvicorn[standard]
+scikit-learn
+pandas
+numpy
+python-multipart
+joblib
+pydantic
+streamlit
+requests
+python-dotenv
+```
 
 ---
 
-## Lições Aprendidas e Habilidades Desenvolvidas
+# ▶️ Como Rodar o Projeto (Passo a Passo)
 
-* Integração entre ciência de dados e engenharia de software 💡 — não bastou treinar o modelo, foi preciso montar backend + frontend.
-* Boas práticas de projeto e organização de código (estrutura, dependências, modularidade).
-* Compreensão do ciclo completo de ML: dados → limpeza → modelagem → avaliação → entrega da aplicação.
-* Trabalho em equipe e colaboração — com divisão de tarefas entre os integrantes da equipe.
-* Consciência sobre limitações e responsabilidade ao usar ML em saúde — mesmo sendo um exercício acadêmico.
+## 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
+```
+
+## 2️⃣ Criar e ativar o ambiente virtual
+
+### Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux/MacOS:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+## 3️⃣ Instalar as dependências
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## Conclusão
+# 🧠 4️⃣ Treinar o modelo (se houver script)
 
-O trabalho realizado pela equipe compila bem a teoria com a prática: um problema real (risco cardíaco), uso de ML, e a criação de uma aplicação funcional que entrega uma predição de risco a partir de dados de paciente.
+Se seu projeto tem um arquivo tipo `train.py`:
 
-## ##  Colaboradores 🕴️
+```bash
+python train.py
+```
 
-Este projeto é o resultado do trabalho e da dedicação de uma equipe incrível. Conheça quem fez o **TripMaster** acontecer:
+Isso deve gerar algo como:
+📌 `modelo_treinado.joblib`
 
-<table> <tr> <td align="center"> <a href="https://github.com/leonard0antonio"> <img src="https://github.com/leonard0antonio.png" width="100px;" alt="Foto de Leonardo Antonio no GitHub"/> <br /> <sub><b>Leonardo Antonio</b></sub> </a> </td> <td align="center"> <a href="https://github.com/ClebsAlexandre"> <img src="https://github.com/ClebsAlexandre.png" width="100px;" alt="Foto de Clebson no GitHub"/> <br /> <sub><b>Clebson Alexandre </b></sub> </a> </td> <td align="center"> <a href="https://github.com/nicolasklayvert"> <img src="https://github.com/nicolasklayvert.png" width="100px;" alt="Foto de Nicolas Klayvert no GitHub"/> <br /> <sub><b>Nicolas Klayvert</b></sub> </a> </td> <td align="center"> <a href="https://github.com/DiegoL13"> <img src="https://github.com/DiegoL13.png" width="100px;" alt="Foto de Diego Luiz no GitHub"/> <br /> <sub><b>Diego Luiz</b></sub> </a> </td> <td align="center"> <a href="https://github.com/SergioRoberto-DEV"> <img src="https://github.com/SergioRoberto-DEV.png" width="100px;" alt="Foto de Sérgio Roberto no GitHub"/> <br /> <sub><b>Sérgio Roberto</b></sub> </a> </td> <td align="center"> <a href="https://github.com/MiguelOlivieira"> <img src="https://github.com/MiguelOlivieira.png" width="100px;" alt="Foto de José Miguel no GitHub"/> <br /> <sub><b>José Miguel</b></sub> </a> </td> </tr> </table>
+---
 
+# 🚀 5️⃣ Rodar o **BACKEND (FastAPI)**
+
+Dentro da pasta do backend:
+
+```bash
+uvicorn main:app --reload
+```
+
+A API ficará disponível em:
+👉 **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
+E a documentação automática da API (Swagger):
+👉 **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
+
+---
+
+# 🖥️ 6️⃣ Rodar o **FRONTEND (Streamlit)**
+
+Na pasta do frontend:
+
+```bash
+streamlit run app.py
+```
+
+A interface abrirá no navegador automaticamente.
+
+---
+
+# 📸 Como adicionar imagem do Google Drive no README
+
+### ✔️ Passo 1 — Pegue o **ID do arquivo**
+
+O link do Drive geralmente é assim:
+
+```
+https://drive.google.com/file/d/1AbCDeFGHIJKlmnopQ/view?usp=sharing
+```
+
+O ID é:
+
+```
+1AbCDeFGHIJKlmnopQ
+```
+
+### ✔️ Passo 2 — Use esse formato para exibir no README:
+
+```md
+<img src="https://drive.google.com/uc?export=view&id=ID_DA_IMAGEM" width="500px" />
+```
+
+### Exemplo real:
+
+```md
+<img src="https://drive.google.com/uc?export=view&id=1AbCDeFGHIJKlmnopQ" width="500px" />
+```
+
+➡️ **Pronto! A imagem aparece no GitHub direto do Google Drive.**
+
+---
+
+# 👥 Colaboradores 🕴️
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/leonard0antonio">
+        <img src="https://github.com/leonard0antonio.png" width="100px;" />
+        <br /><sub><b>Leonardo Antonio</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ClebsAlexandre">
+        <img src="https://github.com/ClebsAlexandre.png" width="100px;" />
+        <br /><sub><b>Clebson Alexandre</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/nicolasklayvert">
+        <img src="https://github.com/nicolasklayvert.png" width="100px;" />
+        <br /><sub><b>Nicolas Klayvert</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/DiegoL13">
+        <img src="https://github.com/DiegoL13.png" width="100px;" />
+        <br /><sub><b>Diego Luiz</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/SergioRoberto-DEV">
+        <img src="https://github.com/SergioRoberto-DEV.png" width="100px;" />
+        <br /><sub><b>Sérgio Roberto</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/MiguelOlivieira">
+        <img src="https://github.com/MiguelOlivieira.png" width="100px;" />
+        <br /><sub><b>José Miguel</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
