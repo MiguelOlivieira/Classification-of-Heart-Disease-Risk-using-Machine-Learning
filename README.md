@@ -144,35 +144,8 @@ A interface abrirá no navegador automaticamente.
 
 ---
 
-# 📸 Como adicionar imagem do Google Drive no README
+# 📸 Capturas de Tela
 
-### ✔️ Passo 1 — Pegue o **ID do arquivo**
-
-O link do Drive geralmente é assim:
-
-```
-https://drive.google.com/file/d/1AbCDeFGHIJKlmnopQ/view?usp=sharing
-```
-
-O ID é:
-
-```
-1AbCDeFGHIJKlmnopQ
-```
-
-### ✔️ Passo 2 — Use esse formato para exibir no README:
-
-```md
-<img src="https://drive.google.com/uc?export=view&id=ID_DA_IMAGEM" width="500px" />
-```
-
-### Exemplo real:
-
-```md
-<img src="https://drive.google.com/uc?export=view&id=1AbCDeFGHIJKlmnopQ" width="500px" />
-```
-
-➡️ **Pronto! A imagem aparece no GitHub direto do Google Drive.**
 
 ---
 
