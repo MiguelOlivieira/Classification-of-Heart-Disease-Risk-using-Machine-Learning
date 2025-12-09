@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .model_util import load_model, predict_instance
 import os
 
+# Cria o app FastAPI
 app = FastAPI(title="API de Risco Cardíaco")
 
 # Permite que o Streamlit converse com esse servidor
@@ -40,6 +41,7 @@ class HeartRiskPredictionResponse(BaseModel):
 MODEL_PATH = "app_backend/model/arvore_decisao_classificador_model.pkl"
 model = load_model(MODEL_PATH)
 
+# Rota de predição
 @app.post("/riskpredict", response_model=HeartRiskPredictionResponse)
 def riskpredict(data: ClinicalUserInput):
     if not model:
@@ -66,6 +68,7 @@ def riskpredict(data: ClinicalUserInput):
     # Chama a função de previsão
     pred_class, confidence, _ = predict_instance(model, x)
     
+    # Retorna a resposta
     return {
         "predicted_class": pred_class,
         "confidence": confidence

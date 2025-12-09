@@ -42,5 +42,6 @@ def train_and_save():
         pickle.dump(model, f)
     print(f"Sucesso! Modelo salvo em: {model_path}")
 
+# Rodar o treinamento e salvar o modelo quando este script for executado diretamente
 if __name__ == "__main__":
     train_and_save()

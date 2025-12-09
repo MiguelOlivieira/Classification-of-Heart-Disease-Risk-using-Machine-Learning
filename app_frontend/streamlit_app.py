@@ -52,14 +52,15 @@ with st.form("ficha_medica"):
     
     col1, col2, col3 = st.columns(3)
     
+    # Dados Pessoais
     with col1:
         age = st.number_input("Idade", min_value=1, max_value=120, value=45, step=1)
         
         sex_display = st.radio("Sexo Biológico", ["Masculino", "Feminino"], horizontal=True)
         sex = 1 if sex_display == "Masculino" else 0
 
+    # Dados Clínicos
     with col2:
-        # Dicionário para CP (Chest Pain)
         cp_labels = {
             0: "Angina Típica (Dor forte/aperto)",
             1: "Angina Atípica (Desconforto)",
@@ -71,9 +72,8 @@ with st.form("ficha_medica"):
             options=[0, 1, 2, 3], 
             format_func=lambda x: cp_labels[x]
         )
-
+    # Exang (Angina induzida por exercício)
     with col3:
-        # Exang (Angina induzida por exercício)
         exang_display = st.radio("Sente dor ao fazer esforço físico?", ["Não", "Sim"], horizontal=True)
         exang = 1 if exang_display == "Sim" else 0
 
@@ -81,6 +81,7 @@ with st.form("ficha_medica"):
     st.subheader("🩺 Sinais Vitais e Exames")
     col4, col5 = st.columns(2)
 
+    # Dados Vitais e Exames
     with col4:
         trestbps = st.slider("Pressão Arterial em Repouso (mmHg)", 90, 200, 120, help="Pressão sistólica (valor maior).")
         chol = st.slider("Colesterol Total (mg/dl)", 100, 600, 200)
@@ -153,6 +154,7 @@ if submit:
         "thal": int(thal)
     }
 
+    # Chama a API
     try:
         with st.spinner("Conectando à IA Médica..."):
             response = requests.post(api_url, json=payload)
@@ -189,7 +191,8 @@ if submit:
         else:
             st.error(f"Erro na API: {response.status_code}")
             st.write(response.text)
-            
+    
+    # Tratamento de erros de conexão      
     except requests.exceptions.ConnectionError:
         st.error("❌ Não foi possível conectar ao servidor.")
         st.warning("Dica: Verifique se você rodou o comando `uvicorn app_backend.api:app --reload` no terminal.")
