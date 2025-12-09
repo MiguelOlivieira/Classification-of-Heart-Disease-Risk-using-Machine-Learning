@@ -37,7 +37,7 @@ class HeartRiskPredictionResponse(BaseModel):
     confidence: float
 
 # Carrega o modelo assim que o servidor liga
-MODEL_PATH = "app_backend/model/heart.pkl"
+MODEL_PATH = "app_backend/model/arvore_decisao_classificador_model.pkl"
 model = load_model(MODEL_PATH)
 
 @app.post("/riskpredict", response_model=HeartRiskPredictionResponse)
