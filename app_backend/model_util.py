@@ -19,7 +19,6 @@ def predict_instance(model, features: list):
     Executa a predição para uma única instância.
     Retorna: (Label legível, Confiança, Classe bruta)
     """
-    # Reshape para formato de batch (1, n_features) exigido pelo sklearn
     input_vector = np.array([features])
 
     try:
