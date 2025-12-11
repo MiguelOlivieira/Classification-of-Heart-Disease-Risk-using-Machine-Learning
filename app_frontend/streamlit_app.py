@@ -30,7 +30,7 @@ st.set_page_config(
 
 # --- Barra Lateral (Configurações) ---
 with st.sidebar:
-   # api_url = st.text_input("URL da API do Modelo", value="http://localhost:8000/riskpredict")
+    api_url = st.text_input("URL da API do Modelo", value="http://localhost:8000/riskpredict")
     st.info("Certifique-se de que o arquivo 'api.py' (backend) esteja rodando.")
     st.header("👨‍💻 Desenvolvedores")
     st.write("Clebson Alexandre ([GitHub](https://github.com/ClebsAlexandre))")
@@ -139,26 +139,23 @@ with st.form("ficha_medica"):
             slope = st.selectbox("Inclinação do Segmento ST (Slope):", [0, 1, 2], format_func=lambda x: slope_labels[x])
             
         with col7:
-            # CORREÇÃO 1: Removida a opção 4 que geralmente é NaN no dataset original
             ca = st.selectbox("Vasos principais coloridos na Fluoroscopia (0-3):", [0, 1, 2, 3], help="Quanto maior o número, melhor a circulação visível.")
             
-            # CORREÇÃO 2: Removida a opção 0 (Erro/Nulo) para evitar envio de dados sujos
             thal_labels = {
                 0: "Normal", 
                 1: "Defeito Fixo (Fixed Defect)", 
                 2: "Defeito Reversível (Reversable Defect)"
             }
-            # Se seu modelo foi treinado onde 0 era algo válido, adicione o 0 na lista abaixo. 
-            # Mas geralmente em produção removemos o 0.
+          
             thal = st.selectbox("Talassemia (Thal):", options=[0, 1, 2], format_func=lambda x: thal_labels[x])
 
     st.write("---")
-    # Botão de Envio
+    #botão de envio do formulario 
     submit = st.form_submit_button("🔍 PROCESSAR DIAGNÓSTICO", type="primary", use_container_width=True)
 
-# --- Lógica de Envio e Exibição ---
+
 if submit:
-    # Monta o JSON igual ao Pydantic do backend
+    # Monta o JSON 
     payload = {
         "age": int(age),
         "sex": int(sex),
@@ -191,7 +188,6 @@ if submit:
             col_a, col_b = st.columns([1, 2])
             
             with col_a:
-                # Lógica de cor baseada no texto da resposta
                 if "Alto" in resultado_texto or "Doença" in resultado_texto or "Risco" in resultado_texto and "Baixo" not in resultado_texto:
                     st.error(f"### {resultado_texto}")
                     st.markdown("⚠️ **Atenção:** Recomenda-se avaliação clínica detalhada.")
