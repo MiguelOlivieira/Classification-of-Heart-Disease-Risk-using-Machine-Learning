@@ -31,13 +31,13 @@ class ClinicalUserInput(BaseModel):
     ca: int
     thal: int
 
-# Resposta que vai voltar para o Site
+# Resposta que vai voltar pagira o Site
 class HeartRiskPredictionResponse(BaseModel):
     predicted_class: str
     confidence: float
 
 # Carrega o modelo assim que o servidor liga
-MODEL_PATH = "app_backend/model/arvore_decisao_classificador_HeartDiseaseRisk.pkl"
+MODEL_PATH = "app_backend/model/modelo_coracao_arvore.pkl"
 model = load_model(MODEL_PATH)
 
 @app.get("/")
